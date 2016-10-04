@@ -33,7 +33,15 @@ public class GestorFiguras {
 
 	public void mostrarFiguras() {
 		for (Figura e : arrayFiguras) {
-			System.out.println(e.getTitulo() + " " + e.getColor() + " " + e.getClass().getName());
+			System.out.println(e.getTitulo() + " " + e.getColor() + " " + e.getClass().getName()+" area:"+e.area());
 		}
+	}
+	
+	public double sumaAreas(){
+		double suma = 0.0;
+		for (Figura e : arrayFiguras) {
+			suma = suma + e.area();
+		}
+		return suma;
 	}
 }
