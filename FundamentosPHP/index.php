@@ -1,4 +1,5 @@
-<?php
+<?php include 'cabecera.php';
+echo "<br/>";
 //* 1. Comentarios de los tres tipos
 
 /*
@@ -64,6 +65,11 @@ $bool = true;
 $doub = 2.3333333;
 
 // * Uso de is_numeric, is_boolean y is_double con estas variables
+
+echo is_numeric($doub)."<br>";
+echo is_bool($bool)."<br>";
+echo is_double($doub)."<br>";
+
 // * Declaración de una variable de tipo string. Pruebas con la función *strlen* y con tres de las funciones indicadas en el enlace.
 
 $str = "Toma vitamina para merendar";
@@ -120,10 +126,42 @@ foreach ($telefonos as $nombre => $tlf){
 }
 echo "</ul>";
 
-
 // * Dos pruebas con la variable superglobal _SERVER
+
+echo $_SERVER['PHP_SELF'];
+echo "<br/>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br/>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br/>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br/>";
+echo $_SERVER['SCRIPT_NAME'];
+echo "<br/>";
+
 // * Dos pruebas de funciones: una devolverá algun tipo, la otra no
+
+$c;
+function funcionConTipo($a, $b):string{
+	return $a.$b;
+}
+
+function funcionSinTipo($a, $b){
+	global $c;
+	$c = $a.$b;
+}
+
 // * Una función que utilice una variable global
+
+function funcionVariableGlobal($a, $b){
+	$GLOBALS['c'] = $a.$b;
+}
+
+//includes
+
+
 // * Un formulario que reciba datos y los muestre por pantalla
+
+
 
 ?>
