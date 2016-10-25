@@ -157,11 +157,23 @@ function funcionVariableGlobal($a, $b){
 	$GLOBALS['c'] = $a.$b;
 }
 
-//includes
-
+//includes arriba
 
 // * Un formulario que reciba datos y los muestre por pantalla
 
-
-
+if(!isset($_POST['enviar'])){
+	var_dump($_POST);
 ?>
+
+<form action="index.php" method="post">
+	Introduce tu nombre: <input type="text" name="nombreForm" />
+	Introduce tu clase/especie/tipo de personaje: <input type="text" name="claseForm" />
+	<input type="submit" name="enviar">
+</form>
+<?php }
+else{
+	var_dump($_POST);
+	echo "<h2>Yo te saludo, ".$_POST['nombreForm'].", el/la ".$_POST['claseForm'];
+}
+?>
+
