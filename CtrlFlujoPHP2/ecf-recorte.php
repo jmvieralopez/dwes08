@@ -2,18 +2,24 @@
 <body>
 <h2>ecf-multiplicacion</h2>
 <?php
-if (! isset ( $_POST ['enviar5'] )) {
+if (! isset ( $_POST ['enviar'] )) {
 	// var_dump($_POST);
+	/*
+	 * 
+	 * 			ARREGLAR
+	 * 
+	 * 
+	 */
 	?>
 <form action="ecf-recorte.php" method="post">
-		Introduce X: <input type="number" name="x5" />
-		<input type="submit" name="enviar5">
+		Introduce X: <input type="text" name="txt" />
+		<input type="submit" name="enviar">
 	</form>
 	<?php
 } else {
-	$x5 = $_POST['x5'];
-	for($m = 1; $m <= 10; $m++) {
-		echo "<p>".$x5." * ".$m." = ".$x5*$m."</p>";
+	$txt = $_POST['txt'];
+	for ($i = strlen($txt); $i > 0; $i++){
+		echo $txt;
 	}
 }
 ?>
