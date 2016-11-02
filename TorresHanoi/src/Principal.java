@@ -23,6 +23,7 @@ public class Principal {
 				PartidaHanoi p = new PartidaHanoi(new Collection, numeroDiscos);
 				int opcionPartida;
 				do{
+					p.dibujar();
 					System.out.println("¿Qué deseas hacer?");
 					System.out.println("1- Realizar un movimiento");
 					System.out.println("2- Abandonar la partida");
