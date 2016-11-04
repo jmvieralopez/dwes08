@@ -2,20 +2,36 @@
 <body>
 	<h2>ecf-acumulador</h2>
 	<form action="ecf-acumulador.php" method="post">
-<?php //ASERLO FUNSIONAR
-$acumulador = 0;
-while ( $acumulador > 50 ) {
+		<input type="number" name="num"/>
+<?php 
 	if (! isset ( $_POST ["enviar"] )) {
+
 		// var_dump($_POST);
-		echo 'Introduce numero: <input type="number" name="num" /><br>
-		<input type="submit" name="enviar">';
+		echo '<input type="hidden" name="acumulado" value="0"/>';
 	} else {
-		echo 'Introduce numero: <input type="number" name="num" /><br>
-		<input type="submit" name="enviar">';
-		$num = $_POST ['num'];
-		$acumulador += $num;
+		$acumulador = $_POST["acumulado"] + $_POST["num"];
+		if($acumulador < 50){
+			?> <input type='hidden' name='acumulado' value="<?php echo $acumulador; ?>"/>
+			<?php
+		}else{
+			echo "<p>Has superado los 50</p>";
+		}
 	}
-}
+?>
+		<input type="submit" name="enviar" value="ENv"/>
+<?php 
+/*
+ * Si el acumulador es > 50
+ * Poner un mensaje de que nos hemos pasado
+ * else
+ * Mostrar el formulario
+ * >En el formulario hay 3 input:
+ * 1. la X
+ * 2. un campo hidden
+ * 3. el botón de enviar
+ * 
+ * $acumulador = $_POST["acumulado"] + $_POST["num"];
+ */
 ?>
 	</form>
 </body>
