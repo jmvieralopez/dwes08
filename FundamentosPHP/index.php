@@ -1,4 +1,4 @@
-<?php include 'cabecera.php';
+  <?php include 'cabecera.php';
 echo "<br/>";
 //* 1. Comentarios de los tres tipos
 

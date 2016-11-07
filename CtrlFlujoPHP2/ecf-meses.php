@@ -16,7 +16,7 @@ if (! isset ( $_POST ['enviar'] )) {
 	$mes = $_POST['mes'];
 	$bisiesto = $_POST['bisiesto'];
 	$diasmes = 0;
-	if($mes > 0 && $mes <=12){
+	if(($mes > 0 && $mes <=12) || (is_string($mes) && sizeof($mes > 3))){
 		switch($mes){
 			case 1:
 			case 3:
@@ -24,11 +24,22 @@ if (! isset ( $_POST ['enviar'] )) {
 			case 7:
 			case 8:
 			case 10:
-			case 12: $diasmes = 31;break;
+			case 12:
+			case "enero":
+			case "marzo":
+			case "mayo":
+			case "julio":
+			case "agosto":
+			case "octubre":
+		  	case "diciembre": $diasmes = 31;break;
 			case 4:
 			case 6:
 			case 9:
+			case "abril":
+			case "junio":
+			case "septiembre":
 			case 11: $diasmes = 30;break;
+			case "febrero":
 			case 2:
 				# bisiesto == 'si'
 				# strcasecamp es como equalsIgnoreCase de Java
@@ -38,9 +49,9 @@ if (! isset ( $_POST ['enviar'] )) {
 					$diasmes = 28;
 				};break;
 		}
-		echo "<p>El mes $mes tiene $diasmes";
+		echo "<p>El mes $mes tiene $diasmes días";
 	}else{
-		echo "<p>Error, ponga un mes numerico</p>";
+		echo "<p>Error, ponga un mes numerico o nombre del mes</p>";
 	}
 }
 ?>
