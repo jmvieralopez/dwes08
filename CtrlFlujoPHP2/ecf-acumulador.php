@@ -18,7 +18,7 @@
 		}
 	}
 ?>
-		<input type="submit" name="enviar" value="ENv"/>
+		<input type="submit" name="enviar" value="Enviar"/>
 <?php 
 /*
  * Si el acumulador es > 50

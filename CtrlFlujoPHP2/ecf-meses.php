@@ -16,6 +16,7 @@ if (! isset ( $_POST ['enviar'] )) {
 	$mes = $_POST['mes'];
 	$bisiesto = $_POST['bisiesto'];
 	$diasmes = 0;
+	$mes = strtolower($mes);
 	if(($mes > 0 && $mes <=12) || (is_string($mes) && sizeof($mes > 3))){
 		switch($mes){
 			case 1:
@@ -37,7 +38,7 @@ if (! isset ( $_POST ['enviar'] )) {
 			case 9:
 			case "abril":
 			case "junio":
-			case "septiembre":
+			case "noviembre":
 			case 11: $diasmes = 30;break;
 			case "febrero":
 			case 2:
