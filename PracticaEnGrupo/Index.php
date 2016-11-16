@@ -16,32 +16,28 @@ Contraseña :<input type="password" name="contrasena"></br>
 <input type="submit" name="enviar">
 </form>
 <?php
-}
-$nombre=$_POST["nombre"];
-$edad=$_POST["edad"];
-$correo=$_POST["correo"];
-$contrasena=$_POST["contrasena"];
-$letras="zxcvbnmasdfghjklñpoiuytrewqáéíóú "; 
-
-if (!isset($nombre)){
-	$valido= true;
-		for ($i=0;i<strlen($nombre) && $valido;$i++){
+}else{
+	$nombre=$_POST["nombre"];
+	$edad=$_POST["edad"];
+	$correo=$_POST["correo"];
+	$contrasena=$_POST["contrasena"];
+	$letras="zxcvbnmasdfghjklñpoiuytrewqáéíóú ";
+	
+	if (!isset($nombre)){
+		$valido = true;
+		for ($i=0;$i<strlen($nombre) && $valido;$i++){
 			$encontrado=false;
-			for ($k=0;i<strlen($letras) && !$encontrado; $k++) {
-				
-				if ($nombre[i]==$letras[k]){
-					$encontrado=true;
+			for ($k=0;$i<strlen($letras) && !$encontrado; $k++) {
+				if ($nombre[$i]==$letras[$k]){
+						$encontrado=true;
 				}				
 			}
 			if($encontrado){
-				$valido = false;
-				
+				$valido = false;	
 			}
 		}
-		
-	
+	}
 }
-
 
 ?>
 
