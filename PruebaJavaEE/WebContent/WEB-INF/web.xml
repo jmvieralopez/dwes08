@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>servletDeEjemplo</servlet-name>
+    <servlet-class>EjemploServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>servletDeEjemploGenerico</servlet-name>
+    <servlet-class>EjemploServletGenerico</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>servletDeEjemploHttp</servlet-name>
+    <servlet-class>EjemploServletHttp</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletDeEjemplo</servlet-name>
+    <url-pattern>/pruebaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletDeEjemploGenerico</servlet-name>
+    <url-pattern>/pruebaServletGenerico</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletDeEjemploHttp</servlet-name>
+    <url-pattern>/pruebaServletHttp</url-pattern>
+  </servlet-mapping>
+  <error-page>
+	<error-code>404</error-code>
+	<location>/errores/error404.html</location>
+</error-page>
+  
+</web-app>
