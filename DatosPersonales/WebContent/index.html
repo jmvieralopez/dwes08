@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario</title>
+</head>
+<body>
+	<h1>Procesamiento de Formulario del Servlet</h1>
+	<form action="/DatosPersonales/ValidacionFormularioServlet08" name="formulario">
+		Nombre: <input name="nombre" type="text"><br> Fecha
+		Contraseña: <input name="contraseña" type="password"><br> 
+		Fecha nacimiento: <input name="fecha" type="date"><br>
+		Número favorito: <input name="numfavorito" type="number"><br>
+		Sexo:<input	name="sexo" type="radio" value="hombre">Hombre
+			<input name="sexo" type="radio" value="mujer">Mujer<br><br>
+		Aficiones<br>
+		<input name="gustos" type="checkbox" value="deporte">Deporte<br>
+		<input name="gustos" type="checkbox" value="musica">Música<br>
+		<input name="gustos" type="checkbox" value="lectura">Lectura<br>
+		<input name="gustos" type="checkbox" value="cine">Cine<br>
+		<input name="gustos" type="checkbox" value="otros">Otros<br><br>
+		Región:
+		<select name="region">
+			<option value="norte">Norte</option>
+			<option value="centro">Centro</option>
+			<option value="sur">Sur</option>
+			<option value="este">Este</option>
+			<option value="fuera">Fuera de la península</option>
+		</select><br>
+		Comentarios:<br>
+		<textarea name="comentarios"></textarea>
+		<br>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>
