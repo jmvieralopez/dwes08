@@ -59,7 +59,7 @@ public class Elipse extends Figura {
 	
 	@Override
 	public double area(){
-		double area = Math.PI * getRadioX() * getRadioY();
+		double area = getRadioX() * getRadioY();
 		return area;
 	}
 	

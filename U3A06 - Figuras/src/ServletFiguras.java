@@ -1,18 +1,24 @@
-import figuras.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import figuras.Circunferencia;
+import figuras.Color;
+import figuras.Cuadrado;
+import figuras.Elipse;
+import figuras.Figura;
+import figuras.Rectangulo;
+
 /**
  * Servlet implementation class ServletFiguras
  */
-@WebServlet("/ServletFiguras")
+//@WebServlet("/ServletFiguras")
 public class ServletFiguras extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +38,7 @@ public class ServletFiguras extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
 		try{
-			//evaluar si request son campos vacíos antes de convertirlos a double
+			//evaluar si request son campos vac�os antes de convertirlos a double
 			Double ladoX = Double.valueOf(request.getParameter("ladox"));
 			Double ladoY = Double.valueOf(request.getParameter("ladoy"));
 			Double radioX = Double.valueOf(request.getParameter("radiox"));
@@ -53,7 +59,7 @@ public class ServletFiguras extends HttpServlet {
 				}
 
 			}else{
-				out.println("¿No había ningún campo relleno?");
+				out.println("No se ha rellenado ningun campo");
 			}
 			out.println("titulo: "+fig.getTitulo());
 			out.println("color "+fig.getColor());
