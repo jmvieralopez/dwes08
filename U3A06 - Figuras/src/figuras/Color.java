@@ -1,7 +1,7 @@
 package figuras;
 
 public enum Color {
-	ROJO("rojo"), AMARILLO("amarillo"), VERDE("verde"), AZUL("azul"), MAGENTA("magenta");
+	ROJO("red"), AMARILLO("yellow"), VERDE("green"), AZUL("blue"), MAGENTA("magenta");
 
 	private String color;
 

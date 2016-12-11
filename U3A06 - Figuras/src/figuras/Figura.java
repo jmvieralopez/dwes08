@@ -11,6 +11,8 @@ public abstract class Figura {
 	private String titulo;
 	
 	private Color color;
+	
+	public boolean borde;
 
 	public String getTitulo() {
 		return titulo;
