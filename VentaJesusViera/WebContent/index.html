@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Venta Jesus Viera</title>
+</head>
+<body>
+<h1>Compraventa de vehículos</h1>
+<h2>Nuevo anuncio</h2>
+<form action="./ServletVenta" method="post" name="formulario">
+<h3>Datos del vehículo</h3>
+<p>Todos los campos son obligatorios excepto estado</p>
+<fieldset>
+Marca:<input type="text" name="marca"><br>
+Modelo:<input type="text" name="modelo"><br>
+Fecha:<input type="date" name="fecha"><br>
+Color:<input type="text" name="color"><br>
+Km de uso:<input type="number" name="kmuso"><br>
+Precio:<input type="number" name="precio"><br>
+Estado:<textarea cols="6" rows="3" name="estado"></textarea>
+</fieldset>
+<h3>Datos del usuario</h3>
+<fieldset>
+Usuario:<input type="text" name="usuario"><br>
+Contraseña (min 8 carac.):<input type="password" name="pass"><br>
+Repita la contraseña:<input type="password" name="pass2"><br>
+E-mail:<input type="email" name="email"><br>
+</fieldset>
+<input type="hidden" name="usuarios"/>
+<input type="submit" value="Enviar">
+</form>
+
+
+</body>
+</html>
