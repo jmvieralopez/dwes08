@@ -6,13 +6,13 @@
 //ordenar modulos
 $rutaArchivo = "files/personas.txt";
 $archivo = fopen($rutaArchivo, 'a');
+fclose($archivo);
 $lineasArchivo = file($rutaArchivo);
 sort($lineasArchivo);
 var_dump($lineasArchivo);
 foreach ($lineasArchivo as $linea) {
 	echo $linea;
 }
-fclose($archivo);
 
 if(!isset($_POST['enviar']) || !isset($_POST['borrar'])){
 ?>

@@ -1,5 +1,4 @@
 DAW
-DIWDWEC
+DIW
+DWEC
 DWES
-Entornos de desarrollo
-Programación
