@@ -3,6 +3,15 @@
 <body>
 <h1>Lista</h1>
 <?php
+/*
+
+------------------------------------
+
+		TERMINAR!!!!!!!!!
+
+------------------------------------
+
+*/
 //ordenar modulos
 $rutaArchivo = "files/personas.txt";
 $archivo = fopen($rutaArchivo, 'a');
@@ -13,8 +22,7 @@ var_dump($lineasArchivo);
 foreach ($lineasArchivo as $linea) {
 	echo $linea;
 }
-
-if(!isset($_POST['enviar']) || !isset($_POST['borrar'])){
+//if(!isset($_POST['enviar']) || !isset($_POST['borrar'])){
 ?>
 <form action="nombres.php" method="post">
 <input type="text" name="nombre">
@@ -22,19 +30,27 @@ if(!isset($_POST['enviar']) || !isset($_POST['borrar'])){
 <input type="submit" name="borrar" value="borrar">
 </form>
 <?php 
-}else{
-	$nombre = $_POST['nombre'];
-	if($_POST['enviar']){
+//}else{
+	if(isset($_POST['enviar'])){
+		$nombre = $_POST['nombre'];
+		
+		echo "<p>Click en enviar</p>";
 		$archivo = fopen($rutaArchivo, 'a+');
-		if(!exists($nombre)){
+		if(!exists($nombre, $lineasArchivo)){
+			echo "<p>Enviando</p>";
 			fwrite($archivo, "$nombre\n");
 		}else{
 			echo "<p>ya existe</p>";
 		}
 		fclose($archivo);
+		//echoNewForm();
 	}
-	if($_POST['borrar']){
-		if(exists($nombre)){
+	if(isset($_POST['borrar'])){
+		$nombre = $_POST['nombre'];
+		
+		echo "<p>Click en borrar</p>";
+		if(exists($nombre, $lineasArchivo)){
+			echo "<p>Borrando</p>";
 			foreach ($lineasArchivo as $linea) {
 				if(strcmp($nombre, $linea)){
 					str_replace($nombre, "", $linea);
@@ -43,16 +59,24 @@ if(!isset($_POST['enviar']) || !isset($_POST['borrar'])){
 		}else{
 			echo "<p>no existe</p>";
 		}
+		//echoNewForm();
 	}
-	echo '<form action="nombres.php" method="post">
+	
+	function echoNewForm(){
+		echo '<form action="nombres.php" method="post">
 <input type="text" name="nombre">
 <input type="submit" name="enviar" value="enviar">
 <input type="submit" name="borrar" value="borrar">
 </form>';
+	}
 	
-}
+//}
 
-function exists($string){
+// echo 'Enviar está en '.var_dump($_POST['enviar']);
+// echo 'Borrar está en '.var_dump($_POST['borrar']);
+
+
+function exists($string, $lineasArchivo){
 	$existe = false;
 	foreach ($lineasArchivo as $linea) {
 		if(strcmp($string, $linea)){
