@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -42,7 +43,7 @@ public class ServletArchivo extends HttpServlet {
 		ServletContext contexto = getServletContext();
 		PrintWriter out = response.getWriter();
 		// out.println(contexto.getRealPath("/files/modulos.txt"));
-		
+
 		// LECTURA DE FICHERO
 		String ruta = contexto.getRealPath("/files/modulos.txt");
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
