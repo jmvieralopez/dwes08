@@ -47,12 +47,12 @@ foreach ($lineasArchivo as $linea) {
 	}
 	if(isset($_POST['borrar'])){
 		$nombre = $_POST['nombre'];
-		
+		//$nombre.=" ";
 		echo "<p>Click en borrar</p>";
 		if(exists($nombre, $lineasArchivo)){
-			echo "<p>Borrando</p>";
 			foreach ($lineasArchivo as $linea) {
-				if(strcmp($nombre, $linea)){
+				if(strcmp($nombre, $linea) == 0){
+					echo "<p>Borrando</p>";
 					str_replace($nombre, "", $linea);
 				}
 			}
@@ -64,10 +64,10 @@ foreach ($lineasArchivo as $linea) {
 	
 	function echoNewForm(){
 		echo '<form action="nombres.php" method="post">
-<input type="text" name="nombre">
-<input type="submit" name="enviar" value="enviar">
-<input type="submit" name="borrar" value="borrar">
-</form>';
+		<input type="text" name="nombre">
+		<input type="submit" name="enviar" value="enviar">
+		<input type="submit" name="borrar" value="borrar">
+		</form>';
 	}
 	
 //}
@@ -79,7 +79,7 @@ foreach ($lineasArchivo as $linea) {
 function exists($string, $lineasArchivo){
 	$existe = false;
 	foreach ($lineasArchivo as $linea) {
-		if(strcmp($string, $linea)){
+		if(strcmp($string, $linea) == 0){//imporante el 0
 			$existe = true;
 		}
 	}
