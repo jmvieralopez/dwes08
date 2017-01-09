@@ -31,7 +31,7 @@ if (! isset ( $_POST ['enviar'] )) {
 	for($i = $x - 1; $i >= 0; $i--){
 		echo "|";
 		for ($j = $i; $j > 0; $j--) {
-			echo "-";
+			echo " ";
 		}
 		echo "/</br>";
 	}
