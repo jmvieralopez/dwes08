@@ -3,18 +3,9 @@
 <body>
 <h1>Lista</h1>
 <?php
-/*
-
-------------------------------------
-
-		TERMINAR!!!!!!!!!
-
-------------------------------------
-
-*/
 //ordenar modulos
 $rutaArchivo = "files/personas.txt";
-$archivo = fopen($rutaArchivo, 'a');
+$archivo = fopen($rutaArchivo, 'w+');
 fclose($archivo);
 $lineasArchivo = file($rutaArchivo);
 sort($lineasArchivo);
