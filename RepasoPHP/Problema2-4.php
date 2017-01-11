@@ -14,15 +14,14 @@ if (! isset ( $_POST ['enviar'] )) {
 } else {
 	$x = $_POST['x'];
 	$cnt = $_POST['cnt'];
-	echo gettype($x);
+	//echo gettype($x);
 	if($x > 0 && $x <= 50){
 		$existe = false;
 		$rutaArchivo = "files/numeros.txt";
 		$archivo = fopen($rutaArchivo, "r") or die("Imposible abrir el archivo");
 		while(!feof($archivo)) {
-			//posible error, vigilar
 			$resultado = strcmp(fgets($archivo), $x."\n");
-			echo $resultado;
+			//echo $resultado;
 			if($resultado == 0){
 				$existe = true;
 			}
