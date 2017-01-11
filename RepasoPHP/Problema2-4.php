@@ -42,7 +42,6 @@ if (! isset ( $_POST ['enviar'] )) {
 			$cnt = 0;
 			echo "<h2>¡Juega otra vez!</h2>";
 		}else{
-			//probar con a+ si sobreescribe
 			$archivo = fopen($rutaArchivo, "a+") or die("Imposible abrir el archivo para escritura");
 			fwrite($archivo,"$x\n");
 			fclose($archivo);
