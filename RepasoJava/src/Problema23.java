@@ -42,16 +42,35 @@ public class Problema23 extends HttpServlet {
 		response.setContentType("text/html");
 		// ESCRITURA
 		String ruta = contexto.getRealPath("/files/texto.txt");
-		out.println(ruta);
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ruta, true), "UTF-8"));
-//		Cuando append esta en true, write y append son iguales.
-		bw.write(texto);
-		bw.newLine();
-		bw.close();
+		// out.println(ruta);
+		// lectura de fichero para detectar repetidos
+		BufferedReader brp = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
+		// evaluar línea mas larga
+		String linea;
+
+		if(texto.length() > 50){
+			out.println("No se admiten más de 50 caracteres");
+		}else{
+			boolean repetido = false;
+			while ((linea = brp.readLine()) != null){
+				if(linea.equals(texto)){
+					repetido = true;
+				}
+			}
+			brp.close();
+			if(repetido){
+				out.println("Esta nota ya existe.");
+			}else{
+				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ruta, true), "UTF-8"));
+//				Cuando append esta en true, write y append son iguales.
+				bw.write(texto);
+				bw.newLine();
+				bw.close();
+			}
+		}
 		// LECTURA DE FICHERO
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
-		// evaluar l�nea mas larga
-		String linea;
+		// evaluar línea mas larga
 		int ancho = 0;
 		while ((linea = br.readLine()) != null){
 			if(ancho < linea.length()){
