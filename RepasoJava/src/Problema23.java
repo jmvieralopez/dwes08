@@ -39,6 +39,7 @@ public class Problema23 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String texto = request.getParameter("texto");
 		ServletContext contexto = getServletContext();
+		response.setContentType("text/html");
 		// ESCRITURA
 		String ruta = contexto.getRealPath("/files/texto.txt");
 		out.println(ruta);
@@ -49,14 +50,15 @@ public class Problema23 extends HttpServlet {
 		bw.close();
 		// LECTURA DE FICHERO
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
+		// evaluar lï¿½nea mas larga
 		String linea;
-		// evaluar línea mas larga
 		int ancho = 0;
 		while ((linea = br.readLine()) != null){
 			if(ancho < linea.length()){
 				ancho = linea.length();
 			}
 		}
+		br.close();
 		// escribir en pantalla
 		out.println("<pre>");
 		// barra arriba y margen superior
@@ -71,17 +73,15 @@ public class Problema23 extends HttpServlet {
 		}
 		out.println("\\");
 		// texto
-		while ((linea = br.readLine()) != null){
-			/*
-					READLINE NO FUNCIONAAA!!!!!! (SERA POR WINDOWS?)
-			*/
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
+		while ((linea = br2.readLine()) != null){
 			out.print("|  "+linea);
 			for(int j = 0; j < (ancho + 2 - linea.length()); j++){
 				out.print(" ");
 			}
 			out.println("|");
 		}
-		br.close();
+		br2.close();
 		// barra abajo
 		out.print("\\");
 		for(int i = 0; i < ancho + 4; i++){
