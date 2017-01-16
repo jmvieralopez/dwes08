@@ -34,8 +34,9 @@ public class StreamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
 		
 		//INICIALIZAR ARRAY
 		ArrayList<String> nombres = new ArrayList<String>();
@@ -60,10 +61,11 @@ public class StreamServlet extends HttpServlet {
 				stream.forEach(out::println);
 		} catch (Exception e) {
 				out.println(e.toString());
-		}
-		*/
+		}		//INICIALIZAR VARIABLES CONTEXTO
+
+		
 		//LECTURA 2
-/*		Path path = Paths.get(contexto.getRealPath("/files/modulos.txt"));
+		Path path = Paths.get(contexto.getRealPath("/files/modulos.txt"));
 		try (Stream<String> stream = Files.lines(path)) {
 		  stream.forEach(s -> {
 		    out.println(s);
@@ -71,16 +73,16 @@ public class StreamServlet extends HttpServlet {
 		} catch (Exception e) {
 		  out.println(e.toString());
 		}
-*/
+
 		//LECTURA CON SALTO DE LINEA
-/*		try (Stream<String> stream = Files.lines(path)) {
+		try (Stream<String> stream = Files.lines(path)) {
 			  stream.forEach(s -> {
 					out.println(s + "<br/>");
 			});
 			} catch (Exception e) {
 				out.println(e.toString());
 			}
-		*/
+		
 		//LECTURA CON FILTRO
 		try (Stream<String> stream = Files.lines(path)) {
 			stream.forEach(s -> {
@@ -90,8 +92,16 @@ public class StreamServlet extends HttpServlet {
 		} catch (Exception e) {
 			out.println(e.toString());
 		}
+*/
+		//LECTURA CON FILTRO Y LAMBDAS
+		try (Stream<String> stream = Files.lines(path)) {
+			  stream
+			  .filter(s -> s.startsWith("D"))
+			    .map(String::toUpperCase)
+			    .sorted()
+			    .forEach(s -> out.println(s + "<br/>"));
+			}
 
-		
 	}
 
 	/**
