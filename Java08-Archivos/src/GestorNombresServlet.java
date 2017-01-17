@@ -38,11 +38,17 @@ public class GestorNombresServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
 		ServletContext contexto = getServletContext();
-		String ruta = contexto.getRealPath("/files/modulos.txt");
-		
+		String ruta = contexto.getRealPath("/files/nombres.txt");
+		String nombre = request.getParameter("nombre");
+		readFile(ruta, out);
+		if(request.getParameter("enviar") != null) {
+			writeNewName(ruta, nombre);
+		}else if(request.getParameter("borrar") != null) {
+			out.write("Borrar");
+		}
 	}
 	
 	// LECTURA DE FICHERO
@@ -55,20 +61,24 @@ public class GestorNombresServlet extends HttpServlet {
 	}
 	
 	// ESCRITURA
-	public void writeNewName(String ruta) throws IOException{
+	public void writeNewName(String ruta, String newName) throws IOException{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ruta, true), "UTF-8"));
-		bw.append("Lenguajes de marcas\n");
+		bw.append(newName+"\n");
 		bw.close();
 	}
 	
-	public void deleteName(String ruta) throws IOException{
+	public void deleteName(String ruta, String nameToDelete) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ruta), "UTF-8"));
 		String linea;
-		while ((linea = br.readLine()) != null)
+		while ((linea = br.readLine()) != null){
+			if(linea.equals(nameToDelete)){
+				
+			}
+		}
 			//out.println(linea);
 		br.close();
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ruta, true), "UTF-8"));
-		bw.append("Lenguajes de marcas\n");
+		//bw.write("");
 		bw.close();
 	}
 
