@@ -53,8 +53,20 @@ function reload_form($titulo) {
 		Boletos comprados:<input type="number" name="numboletos"></br>
 		<input type="submit" name="enviar" value="Comprobar"/>
 		</form>';
+	echo '<h3>actualizar índice</h3><form action="subir.php" method="post" enctype="multipart/form-data">
+<label>Escoger archivo:</label>
+<input type="file" name="archivo">
+<input type="submit" value="Subir archivo" name="enviar">
+</form>';
 }
 
 ?>
+<h3>Actualizar índice</h3>
+<form action="subir.php" method="post" enctype="multipart/form-data">
+<label>Escoger archivo:</label>
+<input type="file" name="archivo">
+<input type="submit" value="Subir archivo" name="enviararchivo">
+</form>
+
 </body>
 </html>
