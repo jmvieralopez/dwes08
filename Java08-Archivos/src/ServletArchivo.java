@@ -59,7 +59,7 @@ public class ServletArchivo extends HttpServlet {
 //		bw.write("Entornos de desarrollo\n");
 		bw.append("Lenguajes de marcas\n");
 		bw.append("Entornos de desarrollo\n");
-		bw.write("¿He podido añadir esta línea? Contiene UTF-8\n");
+		bw.write("ï¿½He podido aï¿½adir esta lï¿½nea? Contiene UTF-8\n");
 		bw.close();
 		
 		// NUEVO ARCHIVO
@@ -73,7 +73,7 @@ public class ServletArchivo extends HttpServlet {
 		archivo.delete();
 		
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
