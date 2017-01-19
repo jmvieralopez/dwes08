@@ -32,15 +32,26 @@ if(isset($_POST["enviar"])) {
 				echo "<h3>Error, el archivo es una imagen</h3>";
 				$error = true;
 			}
-
-			// Comprobar tamaño de archivo
-			$tamaño =$_FILES["archivo"]["size"];
+/*
+	if(!($extension == "doc" || $extension == "docx")) {
+				echo "<h3>Error, el archivo no es un .doc o .docx</h3>";
+				$error = true;
+			}
+*/			// Comprobar tamaño de archivo
+/*			$tamaño =$_FILES["archivo"]["size"];
 			echo "<h4>El tamaño del archivo es $tamaño bytes</h4>";
-			if ( $tamaño > 1000000) {
+			if ( $tamaño > 1000000) { // 1 MB
 				echo "<h3>Error, el archivo es demasiado grande</h3>";
 				$error = true;
 			}
-
+*/
+			$tamaño =$_FILES["archivo"]["size"];
+			echo "<h4>El tamaño del archivo es $tamaño bytes</h4>";
+			if ( $tamaño > 1000) { // 1 KB
+				echo "<h3>Error, el archivo es demasiado grande</h3>";
+				$error = true;
+			}
+			 
 			// Subir el archivo
 			if (!$error)
 			{
