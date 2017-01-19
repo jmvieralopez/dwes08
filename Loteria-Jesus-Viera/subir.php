@@ -15,9 +15,13 @@ if(isset($_POST["enviararchivo"])) {
 	// Comprobar extensiones
 	$extension = pathinfo($archivo,PATHINFO_EXTENSION);
 	$nombre = pathinfo($archivo,PATHINFO_FILENAME);
-	echo "<h4>La extensión es $extension</h4>";
+	//echo "<h4>La extensión es $extension</h4>";
 	if(!$extension == "txt") {
-		echo "<h3>Error, el archivo es una imagen</h3>";
+		echo "<h3>Error, el archivo no es un txt</h3>";
+		$error = true;
+	}
+	if(!$nombre == "loteria"){
+		echo "<h3>Error, el archivo se tiene que llamar loteria</h3>";
 		$error = true;
 	}
 	// Subir el archivo
@@ -30,4 +34,6 @@ if(isset($_POST["enviararchivo"])) {
 	}
 }
 ?>
-<!-- añadir ir atrás -->
+<a href="./loteria.php">Volver</a>
+</body>
+</html>
