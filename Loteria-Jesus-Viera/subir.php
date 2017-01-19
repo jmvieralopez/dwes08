@@ -5,7 +5,6 @@
 
 <?php
 
-
 if(isset($_POST["enviararchivo"])) {
 
 	$directorio = "files/";
@@ -20,7 +19,7 @@ if(isset($_POST["enviararchivo"])) {
 		echo "<h3>Error, el archivo no es un txt</h3>";
 		$error = true;
 	}
-	if(!$nombre == "loteria"){
+	if($nombre != "loteria.txt"){
 		echo "<h3>Error, el archivo se tiene que llamar loteria</h3>";
 		$error = true;
 	}
