@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insertar trabajador</title>
+</head>
+<body>
+<h2>Insertar trabajador</h2>
+	<form action="/Java08-XML/AltaTrabajador" method="post">
+		<label>Nombre</label><input type="text" name="nombre"><br /> 
+		<label>Direccion</label><input type="text" name="direccion"><br />
+		<label>Categoría</label><input type="text" name="categoria"><br /> 
+		<label>Telefono</label><input type="text" name="telefono"><br /> 
+		<input type="radio"	name="tipo" value="fijo"> Fijo<br> 
+		<input type="radio"	name="tipo" value="movil"> Móvil<br>
+		<input type="submit" value="Añadir">
+	</form>
+	<br/>
+	<a href="/Java08-XML/LeerTrabajadores">Ver trabajadores</a>
+</body>
+</html>
