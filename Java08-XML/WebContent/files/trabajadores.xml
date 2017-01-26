@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plantilla>
+	<trabajador categoria="limpieza">
+		<nombre>Angel García</nombre>
+		<direccion>C/ Mayor 27, Madrid</direccion>
+		<telefonos>
+			<telefono tipo="movil">55512345</telefono>
+			<telefono tipo="fijo">91123454</telefono>
+		</telefonos>
+	</trabajador>
+	<trabajador categoria="mantenimiento">
+		<nombre>Julia López</nombre>
+		<direccion>C/ Llana 47, Alcorcón</direccion>
+		<telefonos>
+			<telefono tipo="movil">55544345</telefono>
+		</telefonos>
+	</trabajador>
+	<trabajador categoria="directivo">
+		<nombre>Teresa González</nombre>
+		<direccion>C/ Baja 31, Pinto</direccion>
+		<telefonos>
+			<telefono tipo="fijo">912426532</telefono>
+		</telefonos>
+	</trabajador>
+	<trabajador categoria="directivo">
+		<nombre>Sergio Pérez</nombre>
+		<direccion>Gta Atocha, 34, Madrid</direccion>
+		<telefonos>
+			<telefono tipo="movil">55574563</telefono>
+		</telefonos>
+	</trabajador>
+	<trabajador categoria="informático">
+		<nombre>Joaquín Ruiz</nombre>
+		<direccion>C/ de Arriba, Segovia</direccion>
+		<telefonos>
+			<telefono tipo="fijo">9145352424</telefono>
+			<telefono tipo="movil">555123453</telefono>
+			<telefono tipo="movil">666432434</telefono>
+		</telefonos>
+	</trabajador>
+</plantilla>
