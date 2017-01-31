@@ -30,6 +30,13 @@ else {
 	mysqli_close($conexion);
 }
 ?>
-
+<ul>
+<li><a href="./conexion2.php">Conexión 2</a></li>
+<li><a href="./conexion3.php">Conexión 3</a></li>
+<li><a href="./conexion4.php">Conexión 4</a></li>
+<li><a href="./conexion5.php">Conexión 5</a></li>
+<li><a href="./conexion6.php">Conexión 6</a></li>
+<li><a href="./cuidador.php">Cuidador</a></li>
+</ul>
 </body>
 </html>

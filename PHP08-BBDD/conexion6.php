@@ -39,12 +39,14 @@ echo "<p>A continuación mostramos algunos registros:</p>";
 <th>Imagen</th>
 </tr>
 <?php
-$resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
+//$resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
+$resultado = $conexion -> query("SELECT chip, nombre, especie AS tipo, imagen FROM animal ORDER BY nombre");
 /*while ($animal = $resultado->fetch_object('Animal')) {
 	echo $animal."<br/>";
 }*/
 while ($animal = $resultado->fetch_object('Animal')) {
 	// echo $animal."<br/>"; // primer intento más sencillo
+	echo print_r($animal);
 	echo "<tr bgcolor='lightgreen'>";
 	echo "<td>".$animal->getChip()."</td>\n";
 	echo "<td>".$animal->getNombre()."</td>\n";

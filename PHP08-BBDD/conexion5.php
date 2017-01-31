@@ -45,5 +45,7 @@ echo "</ul>";
 echo "<h3>Desconectando...</h3>";
 mysqli_close($conexion);
 ?>
+<a href="index.html">Indice</a>
+
 </body>
 </html>
