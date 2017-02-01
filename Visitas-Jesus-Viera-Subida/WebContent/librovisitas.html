@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Libro de Visitas</title>
+<style>
+body{
+	text-align: center;
+	background: lightblue;
+}
+</style>
+</head>
+<body>
+<h2>Libro de visitas</h2>
+<form action="/Visitas-Jesus-Viera-Subida/LibroVisitasSubida" method="post">
+Autor: <input type="text" name="autor"></br>
+Comentario: <br><textarea cols="20" rows="10" name="comentario"></textarea></br>
+<input type="submit" name="enviar" value="Enviar comentario">
+</form>
+<h3>Importar comentarios</h3>
+<form action="/Visitas-Jesus-Viera-Subida/Subir" method="post" enctype="multipart/form-data">
+    <label>Escoger archivo:</label>
+    <input type="file" name="archivo"><br/>
+    <label>Nombre:</label><input type="text" name="nombre"><br/>
+    <input type="submit" value="Subir archivo" name="enviar">
+</form>
+
+</body>
+</html>
