@@ -26,8 +26,8 @@ echo "<p>A continuación mostramos algunos registros:</p>";
 <tr bgcolor="lightblue">
 <th>id</th>
 <th>idArtista</th>
-<th>canción <a href="">▲</a> <a href="">▼</a></th>
-<th>artista <a href="">▲</a> <a href="">▼</a></th>
+<th>canción</th>
+<th>artista</th>
 <th>album</th>
 </tr>
 <?php
