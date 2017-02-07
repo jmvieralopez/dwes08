@@ -24,11 +24,12 @@ echo "<p>A continuación mostramos algunos registros:</p>";
 ?>
 <table>
 <tr bgcolor="lightblue">
-<th>id</th>
-<th>artista</th>
-<th>idArtista</th>
+<!-- <th>id</th> -->
+<!-- <th>idArtista</th> -->
 <th>canción</th>
+<th>artista</th>
 <th>album</th>
+<th>caratula</th>
 </tr>
 <?php
 $resultado = $conexion -> query("SELECT * FROM canciones WHERE id=$idCancion");
@@ -40,21 +41,23 @@ while ($cancion = $resultado->fetch_object('Cancion')) {
 	$resultado2 = $conexion -> query("SELECT * FROM artista");
 	// echo print_r($cancion);
 	echo "<tr bgcolor='lightgreen'>";
-	echo "<td>".$cancion->getId()."</td>\n";
-	$fila=$resultado2->fetch_array(MYSQLI_ASSOC);
+// 	echo "<td>".$cancion->getId()."</td>\n";
+/*	$fila=$resultado2->fetch_array(MYSQLI_ASSOC);
 	while ($fila!=null){
 		if($fila['id'] == $cancion->getIdArtista() ){
 			echo "<td>".$fila['nombre']."</td>\n";
 		}
 		$fila=$resultado2->fetch_array(MYSQLI_ASSOC);
 	}
-	
-	echo "<td>".$cancion->getIdArtista()."</td>\n";
+	*/
+// 	echo "<td>".$cancion->getIdArtista()."</td>\n";
 	echo "<td>".$cancion->getCancion()."</td>\n";
-//	echo "<td>".$cancion->getArtista()."</td>\n";
+	echo "<td>".$cancion->getArtista()."</td>\n";
 	echo "<td>".$cancion->getAlbum()."</td>\n";
+	echo "<td><img width='100' height='100' src='./img/".$cancion->getCaratula()."'</img></td>\n";
+	
 	echo "</tr>";
-	mysqli_free_result($resultado2);
+	//mysqli_free_result($resultado2);
 }
 
 mysqli_close($conexion);
@@ -62,7 +65,7 @@ mysqli_close($conexion);
 
 </table>
 
-<a href="./mostrarCatalogo">volver</a>
+<a href="./mostrarCatalogo.php">volver</a>
 
 </body>
 </html>

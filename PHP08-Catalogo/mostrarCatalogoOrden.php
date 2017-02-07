@@ -24,11 +24,12 @@ echo "<p>A continuación mostramos algunos registros:</p>";
 <table style="width:50%">
 
 <tr bgcolor="lightblue">
-<th>id</th>
+<!-- <th>id</th> -->
 <!-- <th>idArtista</th> -->
 <th>canción <a href="mostrarCatalogoOrden.php?campo=cancion&orden=a">▲</a> <a href="mostrarCatalogoOrden.php?campo=cancion&orden=d">▼</a></th>
 <th>artista <a href="mostrarCatalogoOrden.php?campo=artista&orden=a">▲</a> <a href="mostrarCatalogoOrden.php?campo=artista&orden=d">▼</a></th>
 <th>album</th>
+<th>carátula</th>
 </tr>
 <?php
 /*while ($animal = $resultado->fetch_object('Animal')) {
@@ -123,7 +124,7 @@ while ($cancion = $resultado->fetch_object('Cancion')) {
 	// echo $animal."<br/>"; // primer intento más sencillo
 	// echo print_r($cancion);
 	echo "<tr bgcolor='lightgreen'>";
-	echo "<td>".$cancion->getId()."</td>\n";
+//	echo "<td>".$cancion->getId()."</td>\n";
 	/*
 	// ENLACE CON LA TABLA ARTISTA
 	$resultado2 = $conexion -> query("SELECT * FROM artista");
@@ -142,6 +143,7 @@ while ($cancion = $resultado->fetch_object('Cancion')) {
 //	echo "<a href='./mostrarObra.php?idCancion=".$cancion->getId()."'>".$cancion->getCancion()."</a>\n";
 	echo "<td>".$cancion->getArtista()."</td>\n";
 	echo "<td>".$cancion->getAlbum()."</td>\n";
+	echo "<td><img width='100' height='100' src='./img/".$cancion->getCaratula()."'</img></td>\n";
 	echo "</tr>";
 }
 mysqli_free_result($resultado);
