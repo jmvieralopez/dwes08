@@ -64,6 +64,8 @@ if ((!isset($_REQUEST["campo"])) && (!isset($_REQUEST["orden"]))){
 	}
 }
 */
+
+/*
 if ((!isset($_REQUEST["campo"])) && (!isset($_REQUEST["orden"]))){
 	$resultado = $conexion -> query("SELECT * FROM `canciones` ORDER BY `id`");
 }else{
@@ -82,12 +84,44 @@ if ((!isset($_REQUEST["campo"])) && (!isset($_REQUEST["orden"]))){
 		$resultado = $conexion -> query("SELECT * FROM `canciones` ORDER BY `canciones`.`artista` DESC");
 	}
 }
+*/
+$consulta = "";
 
-
+if ((!isset($_REQUEST["campo"])) && (!isset($_REQUEST["orden"]))){
+	$consulta = "SELECT * FROM `canciones` ORDER BY `id`";
+}else{
+	$campo = $_REQUEST["campo"];
+	$orden = $_REQUEST["orden"];
+	/*
+	if(strcmp($campo, "cancion")==0) echo "<p>El campo es cancion</p>";
+	if(strcmp($campo, "artista")==0) echo "<p>El campo es artista</p>";
+	*/
+	if(strcmp($campo, "cancion")==0 && strcmp($orden, "a")==0){
+		echo "<p>Entra en 1</p>";
+		$consulta = "SELECT * FROM canciones ORDER BY cancion ASC";
+	}
+	if(strcmp($campo, "cancion")==0 && strcmp($orden, "d")==0){
+		echo "<p>Entra en 2</p>";
+		$consulta = "SELECT * FROM canciones ORDER BY cancion DESC";
+	}
+	if(strcmp($campo, "artista")==0 && strcmp($orden, "a")==0){
+		$consulta = "SELECT * FROM canciones ORDER BY artista ASC";
+		echo "<p>Entra en 3</p>";
+		}
+	if(strcmp($campo, "artista")==0 && strcmp($orden, "d")==0){
+		$consulta = "SELECT * FROM canciones ORDER BY artista DESC";
+		echo "<p>Entra en 4</p>";
+		}
+}
+/*
+echo print_r($_REQUEST);
+echo "<br>";
+echo print_r($consulta);*/
+$resultado = $conexion -> query($consulta);
 
 while ($cancion = $resultado->fetch_object('Cancion')) {
 	// echo $animal."<br/>"; // primer intento más sencillo
-	echo print_r($cancion);
+	// echo print_r($cancion);
 	echo "<tr bgcolor='lightgreen'>";
 	echo "<td>".$cancion->getId()."</td>\n";
 	/*
