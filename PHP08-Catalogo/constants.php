@@ -1,0 +1,5 @@
+<?php
+$servidor;
+$usuario;
+$clave;
+?>

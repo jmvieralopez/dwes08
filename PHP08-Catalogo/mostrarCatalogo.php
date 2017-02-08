@@ -6,9 +6,14 @@
 <body>
 <?php
 include 'Cancion.php';
+include 'constants.php';
+
+if(!isset($servidor) && !isset($usuario) && !isset($clave)){
 $servidor = "localhost";
 $usuario = "alumno";
 $clave = "alumno";
+}
+echo "$servidor, $usuario, $clave";
 
 $conexion = new mysqli($servidor,$usuario,$clave,"catalogo");
 $conexion->query("SET NAMES 'UTF8'");
