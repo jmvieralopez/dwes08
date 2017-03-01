@@ -23,15 +23,15 @@ if(isset($_REQUEST['login'])){
 		$mensajeError = "Error al establecer la conexión: " . $conexion->connect_errno . "-" . $conexion->connect_error;
 		echo $mensajeError;
 	}else{
-		$consulta = "SELECT * FROM usuarios WHERE nombre LIKE '$user'";
+		$consulta = "SELECT * FROM usuario WHERE nombre LIKE '$user'";
 		$resultado = $conexion -> query($consulta);
-		if (mysqli_num_rows($resultado) = 1){
+		if (mysqli_num_rows($resultado) == 1){
 			$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 			while($fila!=null) {
 				$userDetect = $fila['login'];
 				$passDetect = $fila['password'];
 			}
-			if(strcmp($user, $userDetect) = 0 && strcmp($pass, $passDetect) = 0){
+			if(strcmp($user, $userDetect) == 0 && strcmp($pass, $passDetect) == 0){
 				$_SESSION['login'] = 1;
 				$_SESSION['usuario'] = $user;
 				header('Location: index.php');
@@ -47,11 +47,11 @@ if(isset($_REQUEST['login'])){
 }
 ?>
 <html>
-<h2>Darse de alta</h2>
+<h2>Iniciar sesión</h2>
 <form action="login.php">
 Usuario: <input type="text" name="user"><br>
 Contraseña <input type="password" name="pass"><br>
-<input type="submit" name="login" value="Dar de baja">
+<input type="submit" name="login" value="Iniciar sesión">
 </form>
 
 <a href="alta.php">¿aún no tienes cuenta? Haz clic aquí para crear una.</a>

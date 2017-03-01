@@ -47,19 +47,14 @@ if (mysqli_num_rows($resultado) = 1){
 	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 	while($fila!=null) {
 		$userDetect = $fila['login'];
-		$passDetect = $fila['password'];
-	}
-	if(strcmp($user, $userDetect) = 0 && strcmp($pass, $passDetect) = 0){
-		$_SESSION['login'] = 1;
-		$_SESSION['usuario'] = $user;
-		header('Location: index.php');
+		// $passDetect = $fila['password'];
+		echo "<h2>Bienvenido al catálogo de ".$fila['nombre']."</h2>";
 	}
 }else{
 	$mensajeError = "El usuario no existe o está erróneamente duplicado.";
 	echo $mensajeError;
 }
 
-echo "<h2>Catalogo</h2>";
 ?>
 
 <form method="get" action="mostrarCatalogo.php">
@@ -129,6 +124,8 @@ mysqli_close($conexion);
 if(isset($_GET["titulo"])){
 	echo "<a href='mostrarCatalogo.php'>Eliminar filtros</a>";
 }
-?>
+?><br>
+<a href="logout.php">Cerrar sesión</a><br>
+<a href="baja.php">Eliminar cuenta</a>
 </body>
 </html>
