@@ -5,6 +5,7 @@
  * se redirigirá automáticamente a index.php
  */
 $mensajeError = "";
+session_start();
 if(isset($_REQUEST['login'])){
 	$servidor = "localhost";
 	$usuario = "alumno";
@@ -13,7 +14,7 @@ if(isset($_REQUEST['login'])){
 		$user = $_REQUEST['user'];
 		$pass = $_REQUEST['pass'];
 	}
-	// echo "$servidor, $usuario, $clave";
+	//echo "$servidor, $usuario, $clave";
 	
 	$conexion = new mysqli($servidor,$usuario,$clave,"catalogo");
 	$conexion->query("SET NAMES 'UTF8'");
@@ -23,15 +24,15 @@ if(isset($_REQUEST['login'])){
 		$mensajeError = "Error al establecer la conexión: " . $conexion->connect_errno . "-" . $conexion->connect_error;
 		echo $mensajeError;
 	}else{
-		$consulta = "SELECT * FROM usuario WHERE nombre LIKE '$user'";
+		$consulta = "SELECT * FROM usuario WHERE login LIKE '$user'";
 		$resultado = $conexion -> query($consulta);
 		if (mysqli_num_rows($resultado) == 1){
 			$fila=$resultado->fetch_array(MYSQLI_ASSOC);
-			while($fila!=null) {
+			//while($fila!=null) {
 				$userDetect = $fila['login'];
 				$passDetect = $fila['password'];
-			}
-			if(strcmp($user, $userDetect) == 0 && strcmp($pass, $passDetect) == 0){
+			//}
+			if((strcmp($user, $userDetect) == 0) && (strcmp($pass, $passDetect) == 0)){
 				$_SESSION['login'] = 1;
 				$_SESSION['usuario'] = $user;
 				header('Location: index.php');
@@ -40,15 +41,13 @@ if(isset($_REQUEST['login'])){
 			$mensajeError = "El usuario no existe o está erróneamente duplicado.";
 			echo $mensajeError;
 		}
-		
-		mysqli_close($conexion);
-		
 	}
+	mysqli_close($conexion);
 }
 ?>
 <html>
 <h2>Iniciar sesión</h2>
-<form action="login.php">
+<form action="login.php" method="post">
 Usuario: <input type="text" name="user"><br>
 Contraseña <input type="password" name="pass"><br>
 <input type="submit" name="login" value="Iniciar sesión">
